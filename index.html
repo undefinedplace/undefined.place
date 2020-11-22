@@ -12,55 +12,46 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
     <header>
       <h1>
-        <a href="#home">UNDEFINED Home</a>
+        <a href="#home">undefined place</a>
       </h1>
-      <nav>
+      <nav>        
         <a href="#about">About</a>
         <a href="#blog">Blog</a>
-        <a href="#news">News</a>
         <a href="#photos">Photos</a>
-        <a href="#articles">Intresting Articles</a>
+        <a href="#film">Film</a>
+        <a href="#articles">Articles</a>
+        <a href="#soundtrack">Soundtrack</a>
       </nav>
     </header>
     
     <main>
-      
       <section id="home">
-        <p>This is the homepage, displayed by default.</p>
+        <div>
+          <p>A minimalist place for my thoughts and creations.</p>
+          <ul style="list-style-type:none;">
+            <li><a href="#blog">Writing about my terrible creations</a></li>
+            <li><a href="#photos">General Photography</a></li>
+            <li><a href="#film">Film Photography Adventures</a></li>
+            <li><a href="#articles">Articles I find interesting</a></li>
+            <li><a href="#soundtrack">What music I am listening to</a></li>
+          </ul>
+        </div>
       </section>
       
       <section id="about">
-        <p>This is the about page. <a href="#another-page">This is a link to another page</a>.</p>
-        
-        <figure> 
-          <a href="#img-about">         
-            <img loading="lazy" alt="" src="//via.placeholder.com/1200x600/ddd/ccc" width="1200" height="600">
-          </a>
-          <figcaption>Example of an image with a link to a larger version.</figcaption>
-        </figure>
+        <p>I create things, my recent obsession has been film Photography. <br> Take a look.</p>
+        <a href="#film">Film Photography</a>
       </section>
-      
-      <section id="news">
-        <article>
-          <h1>Blogging with Joe Bloggs <time>10.10.2020</time></h1>
-          <p> One <em>could</em> use this setup to write <s>a blog</s> short updates. For images make sure to use the <code>loading="lazy"</code> attribute, so they get loaded only when needed.<label for="lazy">1</label><input type="checkbox" id="lazy"><small>
-            
-            You might be able to use it for <code>iframe</code> embeds too(?), but maybe just write a link to the Youtube video instead.
-            
-           </small></p>
-        </article>
-              
-        <article>
-          <h1><a href="https://example.com">Why Your Cat Bites You</a> <time>12.12.2004</time></h1>
-          <p>Honestly you don't want to know.</p>
-        </article>
+
+      <section id="blog">
+        <p>nothing here yet!</p>
+        <a href="#home">Go home?</a>
       </section>
-      
+
       <section id="photos">
-        <p>images!</p>
+        <p>Photos without a film focus</p>
         
         <div class="grid">
           <a href="#img-01"><img loading="lazy" alt="" src="//via.placeholder.com/300x300/ddd/ccc"></a>
@@ -81,12 +72,46 @@
         </div>
         
       </section>
+
+      <section id="film">
+        <p>Photos taken on film or enlarged prints</p>
         
-      <section id="another-page">
+        <div class="grid">
+          <a href="#img-01"><img loading="lazy" alt="" src="//via.placeholder.com/300x300/ddd/ccc"></a>
+          <a href="#img-02"><img loading="lazy" alt="" src="//via.placeholder.com/400x300/ddd/ccc"></a>
+          <a href="#img-03"><img loading="lazy" alt="" src="//via.placeholder.com/300x400/ddd/ccc"></a>
+          <a href="#img-04"><img loading="lazy" alt="" src="//via.placeholder.com/300x300/ddd/ccc"></a>
+          <a href="#img-05"><img loading="lazy" alt="" src="//via.placeholder.com/400x300/ddd/ccc"></a>
+          <a href="#img-06"><img loading="lazy" alt="" src="//via.placeholder.com/300x400/ddd/ccc"></a>
+          <a href="#img-07"><img loading="lazy" alt="" src="//via.placeholder.com/300x300/ddd/ccc"></a>
+          <a href="#img-08"><img loading="lazy" alt="" src="//via.placeholder.com/400x300/ddd/ccc"></a>
+          <a href="#img-09"><img loading="lazy" alt="" src="//via.placeholder.com/300x400/ddd/ccc"></a>
+          <a href="#img-10"><img loading="lazy" alt="" src="//via.placeholder.com/300x300/ddd/ccc"></a>
+          <a href="#img-11"><img loading="lazy" alt="" src="//via.placeholder.com/400x300/ddd/ccc"></a>
+          <a href="#img-12"><img loading="lazy" alt="" src="//via.placeholder.com/300x400/ddd/ccc"></a>
+          <a href="#img-13"><img loading="lazy" alt="" src="//via.placeholder.com/300x300/ddd/ccc"></a>
+          <a href="#img-14"><img loading="lazy" alt="" src="//via.placeholder.com/400x300/ddd/ccc"></a>
+          <a href="#img-15"><img loading="lazy" alt="" src="//via.placeholder.com/300x400/ddd/ccc"></a>
+        </div>
         
-        <p>This page is not referenced in the menu, yet it exists.</p>
-        <p><a href="#about">← back</a></p>
-        
+      </section>
+      
+      <section id="articles">
+        <article>
+          <h1>
+            <a 
+            href="https://www.scientificamerican.com/article/deep-frozen-arctic-microbes-are-waking-up/"
+            >
+              Deep Frozen Arctic Microbes Are Waking Up
+            </a> 
+            <time>11.20.2020</time>
+          </h1>
+        </article>
+      </section>
+              
+      <section id="soundtrack">
+        <p>nothing here yet!</p>
+        <a href="#home">Go home?</a>
       </section>
       
     </main>

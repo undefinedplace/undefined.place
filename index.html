@@ -84,41 +84,60 @@
   </body>
 </html>
 <script>
-window.loopForPhotos = true;
-window.photoCount = 1;
-window.currentUrl = '';
-
-getPhotos = () => {
+getPhotos = (prefix, mainPage) => {
   const xmlhttp = new XMLHttpRequest();
+  const photoCount = `${prefix}PhotoCount`;
+  const currentUrl = `${prefix}CurrentUrl`;
+  const loopForPhotos = `${prefix}LoopForPhotos`;
 
   xmlhttp.onreadystatechange = function() {
     if (this.readyState === 4) {
       if (this.status === 200) {
         const anchor = document.createElement('a');
-        anchor.href = `#img-${window.photoCount}`;
+        anchor.href = `#${prefix}-${window[photoCount]}`;
         
         const img = document.createElement('img');
         img.loading = 'lazy';
-        img.alt = `image ${window.photoCount}`;
-        img.src = window.currentUrl;
+        img.alt = `${prefix} ${window[photoCount]}`;
+        img.src = window[currentUrl];
 
         anchor.appendChild(img);
         
-        document.querySelector('#photos .grid').appendChild(anchor);
-        window.photoCount = window.photoCount + 1;
-        getPhotos()
+        document.querySelector(`#${mainPage} .grid`).appendChild(anchor);
+        const fullSizeAnchor = document.createElement('a');
+
+        fullSizeAnchor.href = `#${mainPage}`;
+        fullSizeAnchor.className = 'lightbox';
+        fullSizeAnchor.id = `${prefix}-${window[photoCount]}`;
+
+        const fullSizeImg = document.createElement('img');
+        fullSizeImg.loading = 'lazy';
+        fullSizeImg.alt = `${prefix} ${window[photoCount]}`;
+        fullSizeImg.src = window[currentUrl];
+
+        fullSizeAnchor.appendChild(fullSizeImg);
+        document.querySelector('body').appendChild(fullSizeAnchor);
+
+        window[photoCount] = window[photoCount] + 1;
+        getPhotos(prefix, mainPage);
       } else {
-        window.loopForPhotos = false;
+        window[loopForPhotos] = false;
       }
     }
   };
 
-  if (window.loopForPhotos && window.photoCount < 100) {
-    window.currentUrl = `http://undefined.place/photos/${window.photoCount}.jpg`;
-    xmlhttp.open('GET', window.currentUrl);
+  if (window[loopForPhotos] && window[photoCount] < 100) {
+    window[currentUrl] = `${window.location.origin}/${mainPage}/${window[photoCount]}.jpg`;
+    xmlhttp.open('GET', window[currentUrl]);
     xmlhttp.send();
+  } else if (!window[photoCount]) {
+    window[photoCount] = 1;
+    window[loopForPhotos] = true;
+    window[currentUrl] = '';
+    getPhotos(prefix, mainPage);
   }
 };
 
-getPhotos();
+getPhotos('img', 'photos');
+getPhotos('film-img', 'film');
 </script>
